@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: cooking_book
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - api_network
+
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: db_recipes
+    ports:
+      - '1234:5432'
+    networks:
+      - api_network
+
+networks:
+  api_network:

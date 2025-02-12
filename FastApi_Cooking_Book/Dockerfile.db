@@ -1,0 +1,7 @@
+FROM postgres:14.5
+ENV POSTGRES_USER recipes
+ENV POSTGRES_PASSWORD password
+ENV POSTGRES_DB recipes
+COPY dump/dump-recipes.dump .
+
+
